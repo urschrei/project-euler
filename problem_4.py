@@ -9,8 +9,8 @@ def palindrome(largest):
     """
     l = []
     # nested for loops are a bit ugly, can probably improve this a lot
-    for i in xrange(largest,100,-1):
-        for j in xrange(largest,100,-1):
+    for i in xrange(largest,101,-1):
+        for j in xrange(largest,101,-1):
             check = (i * j)
             # <3 the ::-1 idiom <3<3
             if str(check) == str(check)[::-1]:
@@ -19,3 +19,8 @@ def palindrome(largest):
 
 
 print palindrome(999)
+
+# Alternative, using a list comprehension
+print sorted([(i * j) for i in xrange(999,101,-1)
+    for j in xrange(999,101,-1) if
+        (str(i * j) == str(i * j)[::-1])])[-1]
