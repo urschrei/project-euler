@@ -20,3 +20,19 @@ def lcm(largest):
 
 
 print lcm(20)
+
+
+# Without reduce(), which is uglier, but perhaps clearer
+def lcm_nonfunc(lrg):
+    """
+    assign successive output from the LCM algorithm to product
+    """
+    # we need an initial value
+    product = 1
+    for i in xrange(1, lrg):
+        product = (product * i) / gcd(product, i)
+    return product
+
+
+print lcm_nonfunc(20)
+# There are duplicate successive values; room for improvement (factorisation?)
